@@ -1,0 +1,19 @@
+﻿@model SportsShop.WebUI.Models.ProductsListViewModel
+@using SportsShop.WebUI.HtmlHelpers;
+@{
+    ViewBag.Title = "Produkty";
+}
+
+@foreach (var p in Model.Products)
+{
+    <div class="item">
+        <h3>@p.Name</h3>
+        @p.Description
+        <h3>@p.Price.ToString("c")</h3>
+    </div>
+}
+
+<div class="pager">
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new { page = x }))
+</div>
+
