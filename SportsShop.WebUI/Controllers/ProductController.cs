@@ -20,7 +20,7 @@ namespace SportsShop.WebUI.Controllers
 
         public ViewResult List(int page = 1)
         {
-            ProductsListViewModel viewModel = new ProductsListViewModel() 
+            ProductsListViewModel model = new ProductsListViewModel() 
             {
                 Products = repository.Products
                 .OrderBy(p =>p.ProductId)
@@ -34,7 +34,7 @@ namespace SportsShop.WebUI.Controllers
                 }
             };
 
-            return View(viewModel);
+            return View(model);
         }
     }
 }

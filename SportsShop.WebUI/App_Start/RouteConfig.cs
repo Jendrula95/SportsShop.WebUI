@@ -16,7 +16,7 @@ namespace SportsShop.WebUI
             routes.MapRoute(
                 name: null,
                 url: "Strona{page}",
-                defaults: new {Controller = "Product", action = "List"}
+                defaults: new {controller = "Product", action = "List"}
                 );
 
             routes.MapRoute(
