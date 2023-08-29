@@ -10,7 +10,7 @@
     <div id="header">
         <div class="title">Sklep sportowy</div>
     </div>
-    <div id="categories"> Potem coś się tu da XD </div>
+    <div id="categories"> @{Html.RenderAction("Menu", "Nav");} </div>
     <div id="content">
         @RenderBody()
     </div>
