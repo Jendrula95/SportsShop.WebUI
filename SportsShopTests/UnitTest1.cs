@@ -11,7 +11,7 @@ using Assert = NUnit.Framework.Assert;
 using System.Web.Mvc;
 using System;
 using SportsShop.WebUI.HtmlHelpers;
-using SportsShop.WebUI.HtmlHelpers;
+
 
 namespace SportsShopTests
 {
@@ -32,7 +32,7 @@ namespace SportsShopTests
             ProductController controller = new ProductController(mock.Object);
             controller.PageSize = 3;
 
-            ProductsListViewModel result = (ProductsListViewModel)controller.List(2).Model;
+            ProductsListViewModel result = (ProductsListViewModel)controller.List(null,2).Model;
 
             Product[] prodArray = result.Products.ToArray();
             Assert.IsTrue(prodArray.Length == 2);
@@ -76,7 +76,7 @@ namespace SportsShopTests
             ProductController controller = new ProductController(mock.Object);
             controller.PageSize = 3;
 
-            ProductsListViewModel result = (ProductsListViewModel)controller.List(2).Model;
+            ProductsListViewModel result = (ProductsListViewModel)controller.List(null,2).Model;
 
             PagingInfo pageInfo = result.PagingInfo;
 
