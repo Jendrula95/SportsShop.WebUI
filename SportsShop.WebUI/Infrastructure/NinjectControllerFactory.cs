@@ -10,6 +10,7 @@ using SportsShop.Domain.Entities;
 using SportsShop.Domain.Abstract;
 using System.Collections.Concurrent;
 using SportsShop.Domain.Concrete;
+using System.Configuration;
 
 namespace SportsShop.WebUI.Infrastructure
 {
@@ -27,9 +28,13 @@ namespace SportsShop.WebUI.Infrastructure
         }
         private void AddBindings()
         {
-
-
             ninjectKernel.Bind<IProductRepository>().To<EFProductRepository>();
+
+            EmailSetting emailSetting = new EmailSetting
+            {
+                WriteAsFile = bool.Parse(ConfigurationManager.AppSettings["Email.WriteAsFile"] ?? "false")
+            };
+            ninjectKernel.Bind<IOrderProcessor>().To<EmailOrderProcessor>().WithConstructorArgument("setting",emailSetting);
         }
     }
 }
