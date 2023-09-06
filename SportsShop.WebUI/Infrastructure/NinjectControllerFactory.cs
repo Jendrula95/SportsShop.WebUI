@@ -11,6 +11,8 @@ using SportsShop.Domain.Abstract;
 using System.Collections.Concurrent;
 using SportsShop.Domain.Concrete;
 using System.Configuration;
+using SportsShop.WebUI.Infrastructure.Concrete;
+using SportsShop.WebUI.Infrastructure.Abstract;
 
 namespace SportsShop.WebUI.Infrastructure
 {
@@ -35,6 +37,8 @@ namespace SportsShop.WebUI.Infrastructure
                 WriteAsFile = bool.Parse(ConfigurationManager.AppSettings["Email.WriteAsFile"] ?? "false")
             };
             ninjectKernel.Bind<IOrderProcessor>().To<EmailOrderProcessor>().WithConstructorArgument("setting",emailSetting);
+
+            ninjectKernel.Bind<IAuthProvider>().To<FormsAuthProvider>();
         }
     }
 }

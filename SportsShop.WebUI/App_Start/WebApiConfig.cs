@@ -16,7 +16,7 @@ namespace SportsShop.WebUI
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
+                routeTemplate: "api/{Controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
         }

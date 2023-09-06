@@ -7,9 +7,23 @@
 
 <h1>Edycja @Model.Name</h1>
 
-@using (Html.BeginForm("Edit","Admin"))
+@using (Html.BeginForm("Edit","Admin",FormMethod.Post,new {enctype="multipart/from-data"}))
 {
+
      @Html.EditorForModel()
+    <div class="editor-label">Zdjęcie</div>
+    <div class="editor-field">
+        @if(Model.ImageData == null)
+                {
+                    @:Brak
+                }
+else
+                {
+                    <img width="150"height="150"
+                         src="@Url.Action("GetImage", "Product", new {Model.ProductId})" />
+                }
+        <div>Prześlij nowe zdjęcie: <input type="file"name="Image" /></div>
+    </div>
     <input type="submit" value="Zapisz" />
     @Html.ActionLink("Anuluj i wróć do listy ", "Index")
 }

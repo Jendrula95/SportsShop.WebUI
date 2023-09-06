@@ -27,5 +27,9 @@ namespace SportsShop.Domain.Entities
         [DisplayName("Kategoria")]
         [Required(ErrorMessage = "Prosze określić kategorię.")]
         public string Category { get; set; }
+
+        public byte[] ImageData {  get; set; }
+        [HiddenInput(DisplayValue = false)]
+        public string ImageMimeType { get; set; }
     }
 }
