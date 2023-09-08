@@ -20,6 +20,8 @@ namespace SportsShop.WebUI.Controllers
         {
             return View();
         }
+      
+
         [HttpPost]
         public ActionResult Login(LoginViewModel model,string returnUrl) 
         {
@@ -41,6 +43,7 @@ namespace SportsShop.WebUI.Controllers
                 return View();
             }
         }
-        
+      
+
     }
 }

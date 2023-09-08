@@ -1,5 +1,7 @@
 ﻿using SportsShop.Domain.Abstract;
 using SportsShop.Domain.Entities;
+using SportsShop.WebUI.Infrastructure.Abstract;
+using SportsShop.WebUI.Models;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -50,6 +52,12 @@ namespace SportsShop.WebUI.Controllers
                 return View(product);
             }
         }
+        public ViewResult Logout()
+        {
+            HttpContext.Session.Clear();
+            return View("Login",new LoginViewModel());
+        }
+        
         public ViewResult Create()
         {
             return View("Edit",new Product());

@@ -7,7 +7,7 @@
 
 <h1>Edycja @Model.Name</h1>
 
-@using (Html.BeginForm("Edit","Admin",FormMethod.Post,new {enctype="multipart/from-data"}))
+@using (Html.BeginForm("Edit","Admin",FormMethod.Post,new {enctype="multipart/form-data"}))
 {
 
      @Html.EditorForModel()
